@@ -1,0 +1,11 @@
+flowchart LR
+    D[PDF et photos du corpus] --> Q{PDF scanné ?}
+    D -- "originaux conservés" --> F[(Stockage fichiers)]
+    Q -- non --> X[Extraction texte, tableaux, figures]
+    Q -- oui --> OCR[OCR local] --> X
+    X --> DEC[Découpage : paragraphes, tableaux, figures]
+    DEC --> E[Embeddings texte et image]
+    DEC --> META[Métadonnées : document, version, page, élément, famille, groupes, statut]
+    E --> IDX[(Index vectoriel)]
+    META --> IDX
+    META --> PG[(Base de métadonnées)]

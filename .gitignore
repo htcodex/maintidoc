@@ -1,0 +1,27 @@
+# Secrets
+.env
+*.key
+*.pem
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+
+# Artefacts générés (reproductibles via corpus/generate_corpus.py)
+corpus/pdf/
+corpus/photos/
+
+# Données et modèles locaux
+models/
+mlruns/
+volumes/
+*.safetensors
+
+# Jeu du reranker (regénéré par datasets/build_reranker_dataset.py), sauf l'échantillon annoté
+datasets/reranker/*.jsonl
+
+# Livrables construits (régénérés par livrable/build_livrable1.py)
+livrable/L1_MaintiDoc_*

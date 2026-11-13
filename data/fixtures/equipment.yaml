@@ -1,0 +1,9 @@
+# Parc d'équipements FICTIF.
+equipment:
+  - {equipment_id: EQ-P-001, family: MDP, model: MDP-200, serial: P2-0391, site: Nord, location: Atelier A, operating_hours: 6120}
+  - {equipment_id: EQ-P-002, family: MDP, model: MDP-200, serial: P2-0457, site: Nord, location: Station de relevage, operating_hours: 7930}
+  - {equipment_id: EQ-P-003, family: MDP, model: MDP-350, serial: P3-0211, site: Sud, location: Bassin 2, operating_hours: 3410}
+  - {equipment_id: EQ-P-004, family: MDP, model: MDP-350, serial: P3-0240, site: Sud, location: Bassin 3, operating_hours: 15880}
+  - {equipment_id: EQ-C-001, family: MDC, model: MDC-55, serial: C5-1180, site: Nord, location: Local air comprimé, operating_hours: 1985}
+  - {equipment_id: EQ-C-002, family: MDC, model: MDC-90, serial: C9-0032, site: Sud, location: Local technique, operating_hours: 7990}
+  - {equipment_id: EQ-C-003, family: MDC, model: MDC-55, serial: C5-1204, site: Sud, location: Atelier B, operating_hours: 4020}

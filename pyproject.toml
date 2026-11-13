@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maintidoc"
+version = "0.1.0"
+description = "Assistant documentaire multimodal et agentique pour la maintenance (prototype académique)"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.7",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+# Semaine 1 : génération et validation du corpus.
+corpus = ["reportlab>=4.0", "pymupdf>=1.24", "pillow>=10.0"]
+dev = ["pytest>=8.0"]
+# Les dépendances des semaines 2 à 6 (LangChain, LangGraph, Qdrant, Transformers, MCP, FastAPI,
+# Streamlit, MLflow) seront ajoutées et figées au fur et à mesure dans requirements.lock.
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

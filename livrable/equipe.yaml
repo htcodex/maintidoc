@@ -1,0 +1,26 @@
+# Composition de l'équipe — À COMPLÉTER puis relancer : python livrable/build_livrable1.py
+# <NomEquipe> = noms de famille en MAJUSCULES, sans accents ni espaces, ordre alphabétique, séparés par "-".
+# 1 à 3 membres. Le premier membre relit la famille pompes, le deuxième la famille compresseurs,
+# le troisième les documents transverses (avec un seul membre, il relit tout).
+membres:
+  - nom: MAHBOUB
+    prenom: Ayman
+    role: "Chef de projet ; corpus pompes ; ingestion ; agent et serveur MCP"
+  - nom: ERRADHA
+    prenom: Amine
+    role: "Corpus compresseurs et transverses ; recherche et reranker ; interface ; évaluation"
+
+# URL du dépôt GitHub (public, ou privé avec accès donné à l'enseignante).
+github_url: https://github.com/A_COMPLETER/maintidoc
+
+# Lien de partage du corpus si le ZIP dépasse la taille acceptée par Classroom (sinon laisser vide).
+lien_corpus: ""
+
+# Matériel réellement disponible (alimente la partie 2.1 du rapport).
+materiel:
+  gpu: "GPU NVIDIA 24 Go visé (à confirmer) ; repli CPU + modèle 3B"
+  ram: "32 Go (à préciser)"
+  disque: "≥ 100 Go libres pour modèles et index"
+
+# Date de rendu affichée dans le rapport.
+date_rendu: "2026-11-13"

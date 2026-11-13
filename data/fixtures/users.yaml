@@ -1,0 +1,29 @@
+# Utilisateurs FICTIFS de démonstration. Aucun mot de passe ici : les secrets sont injectés à l'exécution.
+users:
+  - user_id: u_tech_p01
+    display_name: Technicien pompes 1
+    role: technicien
+    groups: [grp_pompes]
+  - user_id: u_tech_p02
+    display_name: Technicien pompes 2
+    role: technicien
+    groups: [grp_pompes]
+  - user_id: u_tech_c01
+    display_name: Technicien compresseurs 1
+    role: technicien
+    groups: [grp_compresseurs]
+  - user_id: u_resp_01
+    display_name: Responsable maintenance
+    role: responsable
+    groups: [grp_responsables, grp_pompes, grp_compresseurs]
+  - user_id: u_presta_01
+    display_name: Prestataire externe
+    role: prestataire
+    groups: [grp_prestataires]
+
+# Familles d'équipements accessibles par groupe (outils MCP et brouillons de tickets).
+group_families:
+  grp_pompes: [MDP]
+  grp_compresseurs: [MDC]
+  grp_responsables: [MDP, MDC]
+  grp_prestataires: []

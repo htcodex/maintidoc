@@ -1,0 +1,21 @@
+sequenceDiagram
+    actor T as Technicien
+    participant A as API
+    participant O as Orchestration
+    participant V as VLM
+    participant R as Recherche
+    participant M as MCP
+    T->>A: question + photo
+    A->>A: CP1 identité, groupes
+    A->>O: requête autorisée
+    O->>V: photo
+    V-->>O: équipement identifié ? voyant observé
+    O->>R: requête + filtre groupes (CP2)
+    R-->>O: passages et figures autorisés
+    O->>M: historique de l'équipement (CP5)
+    M-->>O: interventions
+    O->>V: rédaction de la réponse (sources = données)
+    V-->>O: réponse JSON + citations
+    O->>O: CP3 vérification des citations
+    O-->>A: réponse / clarification / abstention
+    A-->>T: réponse sourcée

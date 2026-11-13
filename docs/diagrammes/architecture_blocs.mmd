@@ -1,0 +1,17 @@
+flowchart TB
+    U[Interface web<br/>question + photo] -- "question, photo, identité" --> API
+    API[API + authentification<br/>CP1 : identité et groupes] -- "requête + groupes autorisés" --> O
+    O[Orchestration de l'agent<br/>budgets : 3 MCP, 6 modèle, 60 s]
+    O -- "image" --> VLM[Modèle vision-langage<br/>description, réponse JSON]
+    VLM -- "observations, réponse" --> O
+    O -- "requête + filtre de groupes" --> R[Recherche documentaire<br/>CP2 : filtre d'accès avant récupération]
+    R -- "passages, tableaux, figures (ids, pages)" --> O
+    R <--> S[(Stockage : index vectoriel,<br/>métadonnées, fichiers)]
+    O -- "réponse + citations" --> C[Vérification des citations<br/>CP3]
+    C -- "réponse sourcée / clarification / abstention" --> API
+    O -- "brouillon de ticket" --> H[Validation humaine<br/>CP4 : approbation explicite]
+    H -- "jeton signé (utilisateur + hash)" --> M
+    O -- "historique, tickets ouverts" --> M[Outil MCP maintenance<br/>CP5 : droits, jeton, idempotence]
+    M -- "interventions, n° ticket" --> O
+    M <--> T[(Service de maintenance fictif)]
+    API -- "réponse, sources, brouillon" --> U

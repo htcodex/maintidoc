@@ -1,0 +1,10 @@
+flowchart LR
+    B[Brouillon de ticket préparé par l'agent] --> AFF[Affichage du contenu exact]
+    AFF --> Q{Approbation humaine ? CP4}
+    Q -- non / modification --> FIN[Aucun ticket créé]
+    Q -- oui --> J[Jeton signé : utilisateur + hash du contenu + clé d'idempotence]
+    J --> MCP[Appel MCP create_ticket]
+    MCP --> V{Serveur : droits, jeton, hash, idempotence ? CP5}
+    V -- invalide --> REF[Refus journalisé]
+    V -- clé déjà vue --> EX[Ticket existant renvoyé, pas de doublon]
+    V -- valide --> OK[Ticket créé, n° renvoyé à l'utilisateur]
