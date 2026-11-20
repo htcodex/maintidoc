@@ -5,10 +5,8 @@
 membres:
   - nom: MAHBOUB
     prenom: Ayman
-    role: "Chef de projet ; corpus pompes ; ingestion ; agent et serveur MCP"
   - nom: ERRADHA
     prenom: Amine
-    role: "Corpus compresseurs et transverses ; recherche et reranker ; interface ; évaluation"
 
 # URL du dépôt GitHub (public, ou privé avec accès donné à l'enseignante).
 github_url: https://github.com/htcodex/maintidoc

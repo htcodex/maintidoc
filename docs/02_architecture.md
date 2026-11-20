@@ -19,7 +19,7 @@ approbation humaine.
 | Serveur MCP | Fournit l'historique et gere les tickets |
 | Qdrant | Recherche vectorielle des textes et des images |
 | PostgreSQL | Stocke les metadonnees |
-| MinIO | Stocke les PDF, pages et figures |
+| Stockage S3 (SeaweedFS) | Stocke les PDF, pages et figures (remplace MinIO, voir docs/06) |
 | MLflow | Conserve les traces des experimentations |
 
 ## 3. Vue simple du fonctionnement
@@ -180,7 +180,7 @@ maintidoc/
 | OCR | Tesseract en français |
 | Modele vision-langage | Qwen2.5-VL-7B-Instruct |
 | Metadonnees | PostgreSQL |
-| Fichiers | MinIO |
+| Fichiers | Stockage S3 SeaweedFS (MinIO indisponible) |
 | Suivi | MLflow |
 
 Les versions exactes des dépendances et des modèles seront figées avant

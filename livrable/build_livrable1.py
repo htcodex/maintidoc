@@ -311,14 +311,14 @@ def build_corpus(cfg):
 
 def write_readme(cfg, target, zip_mode):
     team = cfg["nom_equipe"]
-    membres = "\n".join(f"| {m['prenom']} {m['nom']} | {m['role']} |" for m in cfg["membres"])
+    membres = "\n".join(f"| {m['prenom']} {m['nom']} |" for m in cfg["membres"])
     corpus_dir = f"L1_MaintiDoc_{team}_Corpus/" if zip_mode else "corpus/"
     txt = f"""# MaintiDoc — Livrable 1 : cadrage, corpus et architecture
 
 Module IA générative multimodale — EMSI 2026. Équipe **{team}**.
 
-| Membre | Rôle |
-|---|---|
+| Membre |
+|---|
 {membres}
 
 ## Objectif du projet

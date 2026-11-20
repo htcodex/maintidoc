@@ -12,7 +12,7 @@ Légende : ✅ fait · 🔄 en cours · ⬜ à faire
 | Sem. | Thème | Livrables de fin de semaine | Critère de sortie |
 |---|---|---|---|
 | **1** | Cadrage, corpus, architecture, risques | Livrable 1 (cadrage + architecture), corpus synthétique v1, manifeste validé, squelette du dépôt | Corpus de 30–50 docs généré et validé par script ; docs de cadrage relus |
-| 2 | Ingestion, recherche texte + image, accès | Pipeline PyMuPDF + OCR → PostgreSQL/MinIO/Qdrant ; recherche hybride + RRF filtrée par groupe | Recall@5 mesuré sur 30 questions pilotes ; 0 fuite inter-groupe |
+| **2** ✅ | Ingestion, recherche texte + image, accès | Pipeline PyMuPDF + OCR → PostgreSQL/MinIO/Qdrant ; recherche hybride + RRF filtrée par groupe | Recall@5 mesuré sur 30 questions pilotes ; 0 fuite inter-groupe |
 | 3 | VLM, citations, sorties structurées | Qwen2.5-VL servi (Transformers/vLLM) ; prompts v1 ; schéma Pydantic ; vérification des citations | Réponse sourcée page+figure sur le scénario nominal |
 | 4 | LangGraph, serveur MCP, validation humaine | Graphe complet avec budgets ; serveur MCP (3 outils) ; jeton d'approbation + idempotence | Ticket créé uniquement après approbation, contenu identique |
 | 5 | Reranker adapté, évaluation, injections | Jeu 800–1 500 triplets ; reranker fine-tuné ; jeu de 150 scénarios ; rapport MLflow | Comparaison sans / origine / adapté (nDCG@5, MRR@10) |
@@ -55,13 +55,12 @@ Légende : ✅ fait · 🔄 en cours · ⬜ à faire
 
 ## Semaines 2 à 6 — tâches prévues
 
-### Semaine 2 — Ingestion et recherche
-- Extraction PyMuPDF : blocs de texte, tableaux, images de pages, figures (bbox) ; OCR Tesseract (fra) pour pages sans couche texte
-- Découpage en éléments (`paragraph`, `table`, `figure`, `page`) avec métadonnées du manifeste
-- Stockage : fichiers → MinIO ; métadonnées → PostgreSQL ; vecteurs → Qdrant (collections `text_bge_m3`, `image_clip`)
-- Filtrage par `access_groups` **dans la requête Qdrant** (avant récupération), re-contrôle à l'affichage
-- Fusion RRF texte + image ; reranker d'origine branché
-- 30 questions pilotes annotées → premières mesures Recall@5 / nDCG@5
+### Semaine 2 — Ingestion et recherche ✅ (voir [docs/06_ingestion_recherche.md](docs/06_ingestion_recherche.md))
+- ✅ Extraction PyMuPDF : paragraphes, tableaux, figures (bbox, ids du manifeste), pages ; OCR EasyOCR (fr) des pages scannées et photos
+- ✅ Métadonnées complètes par élément ; Qdrant (texte BGE-M3, image CLIP), PostgreSQL, stockage S3 (SeaweedFS au lieu de MinIO)
+- ✅ Filtrage par `access_groups` dans la requête Qdrant + re-contrôle + ouverture d'image contrôlée ; journal d'accès
+- ✅ BM25 + dense + visuel, RRF pondérée, reranker d'origine branché
+- ✅ 30 questions pilotes ; Recall@5 / nDCG@5 / MRR@10 ; 0 fuite inter-groupes → [reports/semaine2/](reports/semaine2/)
 
 ### Semaine 3 — VLM et réponses sourcées
 - Service d'inférence Qwen2.5-VL-7B-Instruct (quantifié si nécessaire) ; limites d'image/contexte/tokens

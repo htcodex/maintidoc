@@ -260,11 +260,13 @@ def build(cfg, rows, out_path, _second_pass=False):
     def whos(*idx):
         return ", ".join(dict.fromkeys(who(i) for i in idx))
 
+    noms = ", ".join(f"{m['prenom']} {m['nom']}" for m in membres)
+
     def footer(canvas, doc):
         canvas.saveState()
         canvas.setFont("H", 7.5)
         canvas.setFillColor(colors.HexColor("#666666"))
-        canvas.drawString(2 * cm, 1.1 * cm, f"L1 MaintiDoc — équipe {team} — cadrage, corpus et architecture")
+        canvas.drawString(2 * cm, 1.1 * cm, f"L1 MaintiDoc — {noms} — cadrage, corpus et architecture")
         canvas.drawRightString(19 * cm, 1.1 * cm, f"Page {doc.page}")
         canvas.restoreState()
 
@@ -285,7 +287,7 @@ def build(cfg, rows, out_path, _second_pass=False):
            P("Assistant documentaire multimodal et agentique pour la maintenance", "sub"), Spacer(1, 0.9 * cm),
            P("<b>Livrable 1 — Cadrage, corpus et architecture</b>", "sub"),
            P("Module IA générative multimodale — EMSI 2026 — Semaine 1", "sub"), Spacer(1, 1.6 * cm)]
-    st.append(table([["Équipe", team]] + [[f"Membre {i + 1}", f"{m['prenom']} {m['nom']} — {m['role']}"]
+    st.append(table([["Équipe", team]] + [[f"Membre {i + 1}", f"{m['prenom']} {m['nom']}"]
                                          for i, m in enumerate(membres)]
                     + [["Enseignante", "Pr. Mariam CHERRABI"], ["Date de rendu", cfg["date_rendu"]],
                        ["Dépôt", cfg["github_url"]]], [4, 13], head=False, zebra=False, font=9))
@@ -370,7 +372,7 @@ def build(cfg, rows, out_path, _second_pass=False):
         "automatique (hors attente humaine), image ≤ 8 Mpx, réponse ≤ 1 024 jetons.",
         "<b>Temps</b> : 6 semaines ; un livrable par semaine. Le corpus est généré par script pour pouvoir être "
         "corrigé et régénéré à l'identique.",
-        "<b>Équipe</b> : " + " ; ".join(f"{m['prenom']} {m['nom']} — {m['role']}" for m in membres) + ".",
+        "<b>Équipe</b> : " + " ; ".join(f"{m['prenom']} {m['nom']}" for m in membres) + ".",
     ])]
 
     # ---------------- 2. corpus
@@ -667,15 +669,15 @@ def build(cfg, rows, out_path, _second_pass=False):
     ], [1.1, 4.1, 2.0, 0.5, 0.5, 0.6, 6.5, 1.7], font=7.4)]
 
     # ---------------- 6. planning
-    st += [P("6. Planning et organisation de l'équipe", "h1"), P("6.1 Répartition des rôles", "h2")]
+    st += [P("6. Planning et organisation de l'équipe", "h1"), P("6.1 Répartition des responsabilités", "h2")]
     areas = [("Corpus, inventaire, relecture famille pompes ; ingestion ; agent et MCP", 0),
              ("Relecture famille compresseurs ; recherche et reranker ; évaluation", 1),
              ("Documents transverses ; interface ; déploiement et documentation", 2)]
-    role_rows = [["Membre", "Rôle déclaré", "Responsabilités principales"]]
+    role_rows = [["Membre", "Responsabilités principales"]]
     for i, m in enumerate(membres):
         resp = [a for a, k in areas if min(k, len(membres) - 1) == i]
-        role_rows.append([f"{m['prenom']} {m['nom']}", m["role"], " ; ".join(resp)])
-    st.append(table(role_rows, [3.5, 5.0, 8.5]))
+        role_rows.append([f"{m['prenom']} {m['nom']}", " ; ".join(resp)])
+    st.append(table(role_rows, [4.0, 13.0]))
     st += [P("6.2 Planning des semaines 2 à 6", "h2"), table([
         ["Sem", "Objectif", "Tâches principales", "Critère de fin", "Resp."],
         ["2", "Ingestion et recherche", "Extraction PyMuPDF + OCR ; découpage en éléments ; index Qdrant avec "

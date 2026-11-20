@@ -1,0 +1,134 @@
+# 30 questions pilotes annotées (semaine 2) — évaluation de la recherche.
+# Un élément récupéré est pertinent s'il appartient au document et à la page indiqués et, si `types` est donné,
+# s'il est de l'un de ces types (paragraph, table, figure, page, ocr_text, photo).
+# user : identité utilisée pour la recherche (le filtre d'accès s'applique). Par défaut u_resp_01, qui voit
+# les deux familles : c'est le cas le plus difficile (confusion pompes / compresseurs possible).
+# photo : chemin (relatif à corpus/) d'une photo jointe à la question.
+# categorie : texte | tableau | figure | ocr | photo | piege
+questions:
+  - id: Q01
+    categorie: tableau
+    question: Que signifie le voyant V2 orange fixe sur une pompe MDP ?
+    relevant: [{doc: mdp_man_util, page: 2, types: [table, page]}]
+  - id: Q02
+    categorie: piege
+    question: Sur un compresseur MDC, que signale le voyant orange allumé fixe ?
+    relevant: [{doc: mdc_man_util, page: 1, types: [table, page]}, {doc: mdc_man_util, page: 2, types: [paragraph, page]}]
+  - id: Q03
+    categorie: tableau
+    question: À quelle température le palier de la pompe déclenche-t-il le code P-21 ?
+    relevant: [{doc: mdp_fiche_alarmes, page: 1}, {doc: mdp_man_util, page: 2, types: [paragraph, page]}, {doc: mdp_man_maint, page: 1, types: [figure, page]}]
+  - id: Q04
+    categorie: tableau
+    question: Que veut dire le code défaut C-35 du compresseur ?
+    relevant: [{doc: mdc_fiche_alarmes, page: 1}, {doc: mdc_proc_separateur, page: 1}]
+  - id: Q05
+    categorie: piege
+    question: Quel couple de serrage appliquer aux boulons de bride de refoulement M16 de la pompe ?
+    relevant: [{doc: mdp_bt_2025_01, page: 1}]
+  - id: Q06
+    categorie: piege
+    question: Tous les combien faut-il vidanger l'huile d'un compresseur MDC ?
+    relevant: [{doc: mdc_proc_vidange, page: 1}, {doc: mdc_man_maint, page: 1, types: [table, page]}]
+  - id: Q07
+    categorie: texte
+    question: Quelle quantité de graisse injecter dans les roulements de la pompe ?
+    relevant: [{doc: mdp_proc_graissage, page: 1}]
+  - id: Q08
+    categorie: texte
+    question: Quelle huile et quel volume pour remplir un compresseur MDC-90 ?
+    relevant: [{doc: mdc_proc_vidange, page: 1}, {doc: mdc_man_util, page: 1, types: [table, page]}]
+  - id: Q09
+    categorie: figure
+    question: Où est placé le pressostat PS-102 sur le schéma hydraulique de la pompe ?
+    relevant: [{doc: mdp_sch_hydr, page: 1, types: [figure, page, table]}]
+  - id: Q10
+    categorie: figure
+    question: Montre-moi le schéma du circuit air huile du compresseur avec le capteur PDS-201
+    relevant: [{doc: mdc_sch_pneu, page: 1, types: [figure, page]}]
+  - id: Q11
+    categorie: figure
+    question: Vue éclatée de la pompe avec la garniture mécanique et les roulements
+    relevant: [{doc: mdp_pieces, page: 1, types: [figure, page, table]}]
+  - id: Q12
+    categorie: tableau
+    question: Quelle est la référence du roulement côté accouplement de la MDP-350 ?
+    relevant: [{doc: mdp_pieces, page: 1, types: [table, page]}, {doc: mdp_proc_demontage_roulements, page: 1}]
+  - id: Q13
+    categorie: ocr
+    question: Quel jeu axial est admissible pour le rotor mâle lors de la révision 8 000 h ?
+    relevant: [{doc: mdc_proc_revision_scan, page: 1}]
+  - id: Q14
+    categorie: ocr
+    question: Quel couple de serrage pour les vis de carter du bloc vis lors de la révision ?
+    relevant: [{doc: mdc_proc_revision_scan, page: 1}]
+  - id: Q15
+    categorie: texte
+    question: Quelles sont les six étapes de la consignation des énergies ?
+    relevant: [{doc: trans_sec_consignation, page: 1}]
+  - id: Q16
+    categorie: tableau
+    question: Quels EPI porter pour vidanger de l'huile chaude ?
+    relevant: [{doc: trans_sec_epi, page: 1}]
+  - id: Q17
+    categorie: figure
+    question: Quels sont les seuils de vibration acceptables pour une pompe MDP ?
+    relevant: [{doc: mdp_note_vibrations, page: 1}]
+  - id: Q18
+    categorie: texte
+    question: À quelle pression est tarée la soupape de sécurité du compresseur ?
+    relevant: [{doc: mdc_note_soupape, page: 1}, {doc: mdc_sch_pneu, page: 1, types: [figure, page]}]
+  - id: Q19
+    categorie: texte
+    question: La pompe ne s'amorce pas et affiche P-30, que vérifier ?
+    relevant: [{doc: mdp_proc_amorcage, page: 1}, {doc: mdp_fiche_alarmes, page: 1}]
+  - id: Q20
+    categorie: tableau
+    question: Quelle cartouche de filtre à air monter sur un MDC-55 ?
+    relevant: [{doc: mdc_bt_2025_02, page: 1}, {doc: mdc_pieces, page: 1, types: [table, page]}, {doc: mdc_proc_filtre_air, page: 1}]
+  - id: Q21
+    categorie: tableau
+    question: Quelles interventions ont été faites sur la pompe EQ-P-002 ?
+    relevant: [{doc: historique_interventions_mdp, page: 1}]
+  - id: Q22
+    categorie: texte
+    question: Quels champs sont obligatoires pour déclarer un ticket de maintenance ?
+    relevant: [{doc: trans_proc_tickets, page: 1}]
+  - id: Q23
+    categorie: tableau
+    question: Quelles tolérances d'alignement respecter pour l'accouplement de la pompe ?
+    relevant: [{doc: mdp_proc_alignement, page: 1}]
+  - id: Q24
+    categorie: texte
+    question: Comment tendre la courroie du compresseur ?
+    relevant: [{doc: mdc_proc_courroie, page: 1}]
+  - id: Q25
+    categorie: figure
+    question: Schéma électrique de la pompe MDP-350 de 22 kW
+    relevant: [{doc: mdp_sch_elec, page: 1, types: [figure, page, paragraph]}]
+  - id: Q26
+    categorie: piege
+    question: Le voyant orange clignote sur le compresseur, est-ce la température d'huile ?
+    relevant: [{doc: mdc_man_util, page: 1, types: [table, page]}, {doc: mdc_man_util, page: 2, types: [paragraph, page]}, {doc: mdc_guide_depannage, page: 1}]
+  - id: Q27
+    categorie: photo
+    question: Que signifie ce voyant orange ?
+    photo: images/photo_pupitre_mdp_orange_nette.png
+    user: u_tech_p01
+    relevant: [{doc: mdp_man_util, page: 1, types: [figure, page]}, {doc: mdp_man_util, page: 2, types: [table, page, paragraph]}, {doc: mdp_guide_depannage, page: 1}]
+  - id: Q28
+    categorie: photo
+    question: Que signifie ce voyant orange ?
+    photo: images/photo_pupitre_mdc_orange_nette.png
+    user: u_tech_c01
+    relevant: [{doc: mdc_man_util, page: 1, types: [figure, table, page]}, {doc: mdc_guide_depannage, page: 1}]
+  - id: Q29
+    categorie: photo
+    question: Le voyant rouge est allumé sur ce compresseur, que faire ?
+    photo: images/photo_pupitre_mdc_rouge.png
+    user: u_tech_c01
+    relevant: [{doc: mdc_man_util, page: 2, types: [table, page]}, {doc: mdc_fiche_alarmes, page: 1}]
+  - id: Q30
+    categorie: texte
+    question: Les condensats du compresseur peuvent-ils être jetés à l'égout ?
+    relevant: [{doc: mdc_proc_purge_condensats, page: 1}]

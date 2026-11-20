@@ -1,0 +1,122 @@
+{
+  "index_run": "idx-93996133380c1d2d-real",
+  "text_model": "BAAI/bge-m3",
+  "image_model": "sentence-transformers/clip-ViT-B-32+sentence-transformers/clip-ViT-B-32-multilingual-v1",
+  "reranker": "BAAI/bge-reranker-v2-m3",
+  "questions": 30,
+  "summary": {
+    "bm25": {
+      "recall@5": 0.967,
+      "ndcg@5": 0.774,
+      "mrr@10": 0.894,
+      "latence_mediane_s": 0.003,
+      "latence_p95_s": 0.006
+    },
+    "dense": {
+      "recall@5": 1.0,
+      "ndcg@5": 0.845,
+      "mrr@10": 0.95,
+      "latence_mediane_s": 0.212,
+      "latence_p95_s": 0.259
+    },
+    "hybride_texte": {
+      "recall@5": 1.0,
+      "ndcg@5": 0.86,
+      "mrr@10": 0.978,
+      "latence_mediane_s": 0.259,
+      "latence_p95_s": 0.313
+    },
+    "hybride_visuel": {
+      "recall@5": 1.0,
+      "ndcg@5": 0.498,
+      "mrr@10": 0.646,
+      "latence_mediane_s": 0.36,
+      "latence_p95_s": 0.585
+    },
+    "hybride_visuel_pondere": {
+      "recall@5": 1.0,
+      "ndcg@5": 0.756,
+      "mrr@10": 0.847,
+      "latence_mediane_s": 0.343,
+      "latence_p95_s": 0.578
+    },
+    "hybride_visuel_pondere_rerank": {
+      "recall@5": 1.0,
+      "ndcg@5": 0.872,
+      "mrr@10": 0.934,
+      "latence_mediane_s": 28.086,
+      "latence_p95_s": 33.871
+    }
+  },
+  "recall@5_par_categorie": {
+    "bm25": {
+      "tableau": 1.0,
+      "piege": 1.0,
+      "texte": 0.88,
+      "figure": 1.0,
+      "ocr": 1.0,
+      "photo": 1.0
+    },
+    "dense": {
+      "tableau": 1.0,
+      "piege": 1.0,
+      "texte": 1.0,
+      "figure": 1.0,
+      "ocr": 1.0,
+      "photo": 1.0
+    },
+    "hybride_texte": {
+      "tableau": 1.0,
+      "piege": 1.0,
+      "texte": 1.0,
+      "figure": 1.0,
+      "ocr": 1.0,
+      "photo": 1.0
+    },
+    "hybride_visuel": {
+      "tableau": 1.0,
+      "piege": 1.0,
+      "texte": 1.0,
+      "figure": 1.0,
+      "ocr": 1.0,
+      "photo": 1.0
+    },
+    "hybride_visuel_pondere": {
+      "tableau": 1.0,
+      "piege": 1.0,
+      "texte": 1.0,
+      "figure": 1.0,
+      "ocr": 1.0,
+      "photo": 1.0
+    },
+    "hybride_visuel_pondere_rerank": {
+      "tableau": 1.0,
+      "piege": 1.0,
+      "texte": 1.0,
+      "figure": 1.0,
+      "ocr": 1.0,
+      "photo": 1.0
+    }
+  },
+  "access": {
+    "verified_results": 870,
+    "leaks": 0,
+    "leak_examples": [],
+    "forbidden_asset_opens": 145,
+    "forbidden_asset_opens_refused": 145,
+    "allowed_asset_opens": 20,
+    "allowed_asset_opens_ok": 20,
+    "backends": {
+      "qdrant": "serveur",
+      "metadata": "postgresql",
+      "assets": "s3"
+    },
+    "documents_visible_per_user": {
+      "u_tech_p01": 26,
+      "u_tech_p02": 26,
+      "u_tech_c01": 25,
+      "u_resp_01": 47,
+      "u_presta_01": 3
+    }
+  }
+}

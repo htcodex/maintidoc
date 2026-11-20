@@ -24,4 +24,7 @@ volumes/
 datasets/reranker/*.jsonl
 
 # Livrables construits (régénérés par livrable/build_livrable1.py)
-livrable/L1_MaintiDoc_*
+livrable/L*_MaintiDoc_*
+
+# Index local (régénéré par python -m maintidoc.ingestion.pipeline)
+data/index/

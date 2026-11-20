@@ -1,0 +1,23 @@
+# Révisions figées des modèles (à utiliser avec revision=... pour reproduire l'index)
+generated: '2026-11-20'
+models:
+  text_model:
+    repo: BAAI/bge-m3
+    revision: 9a0624b896d81da7492a910ffa53731274b6cf3d
+    size_mb: 4564
+    license: mit
+  image_model:
+    repo: sentence-transformers/clip-ViT-B-32
+    revision: 327ab6726d33c0e22f920c83f2ff9e4bd38ca37f
+    size_mb: 607
+    license: 'non déclarée sur la fiche HF ; modèle OpenAI CLIP d''origine sous MIT — à confirmer'
+  image_text_model:
+    repo: sentence-transformers/clip-ViT-B-32-multilingual-v1
+    revision: 58edf8cada9e398793dca955574a48cbb7f18be2
+    size_mb: 543
+    license: apache-2.0
+  reranker_model:
+    repo: BAAI/bge-reranker-v2-m3
+    revision: 953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e
+    size_mb: 2293
+    license: apache-2.0

@@ -68,3 +68,4 @@ Le registre est revu à la fin de chaque semaine ; toute modification est datée
 | Date | Modification |
 |---|---|
 | 2026-10-23 | Création du registre (semaine 1) |
+| 2026-11-20 | S9 : MinIO remplacé par SeaweedFS (Apache 2.0), l'image MinIO n'étant plus téléchargeable — risque AGPL réduit à PyMuPDF. Nouveau constat : RRF non pondérée dégradée par le canal visuel (pondération ajoutée). T1 confirmé : aucun GPU sur le poste, reranker ~40 s/requête sur CPU. |

@@ -16,6 +16,9 @@ dependencies = [
 # Semaine 1 : génération et validation du corpus.
 corpus = ["reportlab>=4.0", "pymupdf>=1.24", "pillow>=10.0"]
 dev = ["pytest>=8.0"]
+# Semaine 2 : ingestion, recherche, OCR (versions exactes figées dans requirements.lock)
+retrieval = ["sentence-transformers>=5.0", "qdrant-client>=1.12", "rank-bm25>=0.2.2", "easyocr>=1.7", "numpy>=1.26",
+             "psycopg[binary]>=3.2", "boto3>=1.35", "python-dotenv>=1.0"]
 # Les dépendances des semaines 2 à 6 (LangChain, LangGraph, Qdrant, Transformers, MCP, FastAPI,
 # Streamlit, MLflow) seront ajoutées et figées au fur et à mesure dans requirements.lock.
 
@@ -25,3 +28,5 @@ where = ["src"]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
+markers = ["slow: tests lents (OCR, modèles réels)", "services: intégration avec docker compose (PostgreSQL, S3, Qdrant)"]
+addopts = "-m \"not slow and not services\""
